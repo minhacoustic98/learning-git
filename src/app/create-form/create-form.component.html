@@ -1,0 +1,51 @@
+<p><u style="color:red">Add new employee</u></p>
+
+<form [formGroup]="rfFormCreate" novalidate (ngSubmit)="onSubmitCreate()">
+    <div class="form-group">
+        <label for="txtName">Name of employee:</label>
+        <input id="txtName" placeholder="Name..." class="form-control" type="text" name="txtName" formControlName="cName">
+
+        <div class="alert alert-danger" role="alert"
+         *ngIf="rfFormCreate.controls.cName?.errors?.required"
+         >
+            Name is required!
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtAge">Age:</label>
+        <input id="age" class="form-control" type="number" name="age" formControlName="cAge">
+        <div class="alert alert-danger" role="alert"
+         *ngIf="rfFormCreate.controls.cAge?.errors?.min"
+         >
+            Please insert valid value!!
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtAddress">Address:</label>
+        <textarea name="txtAddress" id="txtAddress" class="form-control" formControlName="cAddress"></textarea>
+        <div class="alert alert-danger" role="alert"
+        *ngIf="rfFormCreate.controls.cAddress?.errors?.reuired"
+        >
+           Must not empty!
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtYear">Year of experience:</label>
+        <input id="txtYear" class="form-control" type="number" name="txtYear" formControlName="cYears">
+        <div class="alert alert-danger" role="alert"
+        *ngIf="rfFormCreate.controls.cYears?.errors?.min"
+        >
+           Please insert valid value!!
+       </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success btn-sm" type="submit">Create</button>
+        &nbsp;
+        <button class="btn btn-default btn-sm">Cancel</button>
+    </div>
+
+</form>

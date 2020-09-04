@@ -1,0 +1,46 @@
+<p><u style="color:#ff6633">Edit  employee</u></p>
+
+<form novalidate [formGroup]="rfFormUpdate" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="txtUName">Name of employee:</label>
+        <input id="txtUName" formControlName="name" placeholder="Name..." class="form-control" type="text" name="txtUName" >
+        <div class="alert alert-danger" role="alert"
+        *ngIf="rfFormUpdate.controls.name?.errors?.required"
+        >
+           Name is required!
+       </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="uAge">Age:</label>
+        <input id="uAge" class="form-control" type="number" name="uAge" formControlName="age">
+        <div class="alert alert-danger" role="alert"
+        *ngIf="rfFormUpdate.controls.age?.errors?.min"
+        >
+          Please insert valid value!
+       </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="uAddress">Address:</label>
+        <textarea name="uAddress" id="uAddress" class="form-control" formControlName="address">
+        </textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="uYears">Year of experience:</label>
+        <input id="uYears" class="form-control" type="number" name="uYears" formControlName="years">
+        <div class="alert alert-danger" role="alert"
+        *ngIf="rfFormUpdate.controls.years?.errors?.min"
+        >
+         Please insert valid value!
+       </div>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-info btn-sm" type="submit">Edit profile</button>
+        &nbsp;
+        <button class="btn btn-warning btn-sm">Cancel update</button>
+       
+    </div>
+</form>
